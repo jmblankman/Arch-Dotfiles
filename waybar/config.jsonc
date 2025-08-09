@@ -1,0 +1,92 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces",
+	"custom/dwm-window",
+	"sway/mode",
+	"sway/window",
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "clock",
+        "pulseaudio",
+        "battery",
+        "tray",
+    ],
+    "custom/arch-logo": {
+    	"exec": "echo '󰣇'",
+	"tooltip": false,
+    },
+    "sway/workspaces": {
+	"persistent-workspaces": {
+	    "1": [],
+	    "2": [],
+	    "3": [],
+	    "4": [],
+	    "5": [],
+	    "6": [],
+	    "7": [],
+	    "8": [],
+	    "9": [],
+	}
+    },
+    "custom/dwm-window": {
+    	"exec": "~/.config/waybar/scripts/window_type.sh",
+	"restart-interval": 1,
+	"tooltip": false,
+    },
+    "sway/mode": {
+    	"tooltip": false,
+    },
+    "sway/window": {
+    	"tooltip": false,
+    },
+    "cpu": {
+    	"format": "[CPU:{usage}%]",
+    	"tooltip": false,
+    },
+    "memory": {
+    	"format": "[MEM:{percentage}%]",
+	"tooltip": false,
+    },
+    "clock": {
+	"format": "[{:%a %m/%d/%Y %I:%M %p}]",
+	"interval": 30,
+	"tooltip": false,
+    },
+    "battery": {
+        "format": "[BAT:{capacity}%]",
+        "format-full": "[BAT:{capacity}%]",
+        "format-charging": "[CHG:{capacity}%]",
+        "format-plugged": "[CHG:{capacity}%]",
+	"interval": 5,
+	"tooltip": false,
+    },
+    "tray": {
+        "spacing": 5,
+	"tooltip": false,
+    },
+    "network": {
+        "format-wifi": "[NET:{signalStrength}%]",
+        "format-ethernet": "[NET:ETH]",
+        "format-disconnected": "[NET:ERR]",
+	"on-click": "foot nmtui",
+	"tooltip": false,
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+	"max-volume": 100,
+        "format": "[VOL:{volume}%]",
+        "format-bluetooth": "[BTH:{volume}%]",
+        "format-bluetooth-muted": "[BTH:MUTE]",
+        "format-muted": "[VOL:MUTE]",
+	"tooltip": false,
+    },
+}

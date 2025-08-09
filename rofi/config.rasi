@@ -1,0 +1,81 @@
+configuration {
+    display-drun: "Applications:";
+    display-window: "Windows:";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font Propo 9.5";
+    modi: "window,run,drun";
+    show-icons: false;
+}
+
+@theme "/dev/null"
+
+* {
+  
+  accent: #282727;
+  black: #181616;
+  grey: #4D4D4D;
+
+  white1: #c5c9c5;
+  white2: #a6a696;
+
+  background-color: @black; 
+
+  spacing: 0;
+}
+
+window {
+  width: 40%;
+  border: 2;
+  border-color: @grey;
+}
+
+inputbar {
+  children: [prompt, entry];
+  padding: 0;
+  background-color: @black;
+  border-color: @grey;
+  border: 0;
+}
+
+prompt {
+  background-color: @grey;
+  padding: 5 7 5 7;
+  text-color: @white1;
+}
+
+entry {
+  background-color: @black;
+  padding: 5;
+  text-color: @white1;
+}
+
+listview {
+  background-color: @black;
+  columns: 1;
+  lines: 7;
+  border-color: @grey;
+  border: 0;
+}
+
+element {
+  padding: 5 7 5 7;
+  text-color: @white2;
+  border-color: transparent;
+}
+
+element selected {
+  background-color: @grey;
+  text-color: @white1;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 15;
+  background-color: transparent;
+}
+

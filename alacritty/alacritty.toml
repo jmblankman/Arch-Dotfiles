@@ -1,0 +1,35 @@
+[font]
+normal.family = "JetBrainsMono Nerd Font Mono"
+size = 9.5
+
+[window]
+padding =  { x = 8, y = 9 }
+
+# Kanagawa Dragon Alacritty Colors
+[colors]
+
+primary.background = '#181616'
+primary.foreground = '#c5c9c5'
+
+normal.black =   '#0d0c0c'
+normal.red =     '#c4746e'
+normal.green =   '#8a9a7b'
+normal.yellow =  '#c4b28a'
+normal.blue =    '#8ba4b0'
+normal.magenta = '#a292a3'
+normal.cyan =    '#8ea4a2'
+normal.white =   '#C8C093'
+
+bright.black =   '#a6a69c'
+bright.red =     '#E46876'
+bright.green =   '#87a987'
+bright.yellow =  '#E6C384'
+bright.blue =    '#7FB4CA'
+bright.magenta = '#938AA9'
+bright.cyan =    '#7AA89F'
+bright.white =   '#c5c9c5'
+
+selection.background = '#2D4F67'
+selection.foreground = '#C8C093'
+
+indexed_colors = [{ index = 16, color = '#b6927b' },{ index = 17, color = '#b98d7b' }]
