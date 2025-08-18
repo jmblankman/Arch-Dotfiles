@@ -1,44 +1,45 @@
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim' if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-		vim.cmd [[packadd packer.nvim]]
-		return true
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
 	end
-	return false
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+local plugins = {
 
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-	-- My plugins here
-	-- use 'foo1/bar1.nvim'
-	-- use 'foo2/bar2.nvim'
+	-- Themes:
+	'rebelot/kanagawa.nvim',
 
-	use {'Vigemus/iron.nvim'}
-	use 'rebelot/kanagawa.nvim'
-	use 'nvim-tree/nvim-tree.lua'
-	use 'stevearc/oil.nvim'
-	use "akinsho/toggleterm.nvim"
-	use 'norcalli/nvim-colorizer.lua'
-	use 'nvim-treesitter/nvim-treesitter'
-	use 'christoomey/vim-tmux-navigator'
+	'nvim-tree/nvim-tree.lua',
+	'akinsho/toggleterm.nvim',
+	'stevearc/oil.nvim',
+	'Vigemus/iron.nvim',
+	'norcalli/nvim-colorizer.lua',
+	'nvim-treesitter/nvim-treesitter',
+	'christoomey/vim-tmux-navigator',
 
-	use {
+	{
 		'nvim-lualine/lualine.nvim',
 		-- Devicons is optional and requires a Nerd Font
-		requires = { { 'nvim-tree/nvim-web-devicons' } } 
-	}
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.2',
-		-- or                          , branch = '0.1.x',
+		dependencies = { { 'nvim-tree/nvim-web-devicons' } } 
+	},
+	{
+		'nvim-telescope/telescope.nvim', 
+		tag = '0.1.2',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+}
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require('packer').sync()
-	end
-end)
+local opts = {}
+
+require("lazy").setup(plugins, opts)

@@ -1,8 +1,8 @@
 -- Improved window navigation
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Resize with arrows
 vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +2<CR>", { noremap = true })
