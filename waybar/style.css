@@ -68,10 +68,13 @@ button {
     color: #181616;
 }
 
-#custom-arch-logo,
 #custom-dwm-window,
 #mode {
     padding: 0 5px;
+}
+
+#custom-arch-logo {
+    padding: 0 7px;
 }
 
 #window {
